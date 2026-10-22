@@ -11,7 +11,7 @@
   --kante:1px solid rgba(34,39,44,.1);
   --r:20px; --r-pille:999px; --r-feld:14px;
   --ueb:.38s cubic-bezier(.2,.7,.3,1); --ueb-schnell:.22s cubic-bezier(.2,.7,.3,1);
-  --breite:1240px; --pad:28px; --sekt:clamp(80px,9vw,124px); --gap:28px;
+  --breite:1240px; --pad:28px; --sekt:clamp(80px,9vw,128px); --gap:28px;
   --kopf:80px; --topbar:36px;
   --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
 }
@@ -100,7 +100,7 @@ body.menu-auf .menu-knopf span:nth-child(2){transform:translateY(-4px) rotate(-4
 .menu-flaeche{position:fixed;left:0;right:0;top:calc(var(--kopf) + var(--topbar));height:calc(100svh - var(--kopf) - var(--topbar));z-index:99;background:#fff;overflow-y:auto;overscroll-behavior:contain;padding:18px var(--pad) 40px;opacity:0;visibility:hidden;transition:opacity var(--ueb),visibility var(--ueb)}
 .menu-flaeche[hidden]{display:none}
 body.menu-auf .menu-flaeche{opacity:1;visibility:visible}
-.menu-flaeche a{display:flex;align-items:center;gap:12px;font-size:clamp(20px,5.2vw,28px);font-weight:800;letter-spacing:-.02em;color:var(--text);padding:14px 0;min-height:52px;border-bottom:var(--kante);opacity:0;transform:translateY(10px);transition:opacity .45s,transform .45s}
+.menu-flaeche a{display:flex;align-items:center;gap:12px;font-size:clamp(20px,5.2vw,28px);font-weight:800;letter-spacing:-.02em;color:var(--text);padding:14px 0;min-height:52px;border-bottom:var(--kante);opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s}
 body.menu-auf .menu-flaeche a{opacity:1;transform:none}
 .mob-leistungen{display:grid;padding-left:16px;border-left:2px solid var(--blau-hell);margin:4px 0 8px}
 .menu-flaeche .mob-leistungen a{font-size:clamp(16px,4.4vw,20px);font-weight:600;padding:10px 0;min-height:46px;border-bottom:none;color:var(--grau)}
@@ -145,13 +145,13 @@ body.menu-auf .menu-flaeche a{opacity:1;transform:none}
 .geladen .klammer .k-oben{transform:translateY(0);opacity:1}
 .geladen .klammer .k-unten{transform:translateY(0) rotate(180deg);opacity:1}
 .krumen{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:rgba(255,255,255,.72);margin-bottom:22px;flex-wrap:wrap}
-.krumen a{min-height:44px;display:inline-flex;align-items:center;transition:color var(--ueb)}
+.krumen a{min-height:44px;padding:0 6px;margin:0 -6px;display:inline-flex;align-items:center;transition:color var(--ueb)}
 .krumen a:hover{color:#fff}
 .krumen i{width:5px;height:5px;border-radius:50%;background:var(--blau);display:inline-block}
 .krumen span{color:#fff}
 
 /* ---------- Reveal (additiv; Grundzustand ohne JS lesbar) ---------- */
-.rev{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rev{opacity:0;transform:translateY(22px);transition:opacity .4s cubic-bezier(.2,.7,.3,1),transform .4s cubic-bezier(.2,.7,.3,1)}
 .rev.da,.kein-js .rev{opacity:1;transform:none}
 .rev-1{transition-delay:.1s}.rev-2{transition-delay:.2s}.rev-3{transition-delay:.3s}
 
@@ -227,7 +227,7 @@ body.menu-auf .menu-flaeche a{opacity:1;transform:none}
 .duo.rechts{grid-template-columns:.9fr 1.1fr}
 .duo.rechts .duo-bild{order:2}
 .duo-bild{position:relative;min-height:420px;border-radius:var(--r);overflow:hidden;background:var(--papier-3)}
-.duo-bild img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pos,center);transition:transform 1.2s cubic-bezier(.2,.7,.3,1)}
+.duo-bild img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pos,center);transition:transform .6s cubic-bezier(.2,.7,.3,1)}
 .duo-bild:hover img{transform:scale(1.035)}
 .duo-bild .klammer-bild{position:absolute;inset:18px;pointer-events:none}
 .duo-bild .klammer-bild .winkel{position:absolute;width:44px;height:20px;stroke-width:12;filter:drop-shadow(0 2px 6px rgba(0,0,0,.25))}
@@ -238,7 +238,7 @@ body.menu-auf .menu-flaeche a{opacity:1;transform:none}
 
 /* ---------- Foto-Band: Panorama in seinem eigenen Format, Text darunter in zwei Spalten ---------- */
 .band-foto{position:relative;border-radius:var(--r);overflow:hidden;background:var(--papier-3);margin-bottom:clamp(28px,4vw,48px)}
-.band-foto img{width:100%;height:auto;display:block;transition:transform 1.2s cubic-bezier(.2,.7,.3,1)}
+.band-foto img{width:100%;height:auto;display:block;transition:transform .6s cubic-bezier(.2,.7,.3,1)}
 .band-foto:hover img{transform:scale(1.025)}
 .band-foto .klammer-bild{position:absolute;inset:16px;pointer-events:none}
 .band-foto .klammer-bild .winkel{position:absolute;width:44px;height:20px;stroke-width:12;filter:drop-shadow(0 2px 6px rgba(0,0,0,.25))}
@@ -311,7 +311,7 @@ body.menu-auf .menu-flaeche a{opacity:1;transform:none}
 .galerie .reihe.kurz{justify-content:flex-start}
 .galerie figure{flex:var(--v) 1 0;min-width:0;margin:0;position:relative;border-radius:var(--r);overflow:hidden;background:var(--papier-3)}
 .galerie .reihe.kurz figure{flex:0 1 calc(var(--v) * var(--h,300px))}
-.galerie img{width:100%;height:100%;object-fit:cover;aspect-ratio:var(--v);transition:transform .9s cubic-bezier(.2,.7,.3,1)}
+.galerie img{width:100%;height:100%;object-fit:cover;aspect-ratio:var(--v);transition:transform .6s cubic-bezier(.2,.7,.3,1)}
 .galerie figure:hover img{transform:scale(1.04)}
 .galerie figure::after{content:"";position:absolute;inset:0;border-radius:var(--r);box-shadow:inset 0 0 0 0 var(--blau);transition:box-shadow var(--ueb);pointer-events:none}
 .galerie figure:hover::after{box-shadow:inset 0 0 0 3px var(--blau)}
@@ -332,7 +332,7 @@ body.menu-auf .menu-flaeche a{opacity:1;transform:none}
 .regler input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--blau);margin-top:-10px;box-shadow:0 4px 12px rgba(0,0,0,.18);transition:transform var(--ueb-schnell)}
 .regler input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--blau)}
 .regler input[type=range]:active::-webkit-slider-thumb{transform:scale(1.12)}
-.regler .skala{display:flex;justify-content:space-between;font-family:var(--mono);font-size:13px;color:var(--grau-hell)}
+.regler .skala{display:flex;justify-content:space-between;font-family:var(--mono);font-size:13px;color:var(--grau)}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
 .chip{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:9px 16px;border-radius:var(--r-pille);border:1.5px solid rgba(34,39,44,.14);background:#fff;font-weight:700;font-size:14.5px;transition:background var(--ueb),border-color var(--ueb),color var(--ueb),transform var(--ueb-schnell)}
 .chip .ic{width:18px;height:18px;color:var(--blau)}
@@ -387,7 +387,7 @@ body.menu-auf .menu-flaeche a{opacity:1;transform:none}
 .standort{display:grid;grid-template-columns:1fr 400px;gap:var(--gap);align-items:stretch}
 .standort-seite{display:flex;flex-direction:column;gap:var(--gap)}
 .standort-foto{border-radius:var(--r);overflow:hidden;background:var(--papier-3);position:relative}
-.standort-foto img{width:100%;height:auto;display:block;transition:transform 1s cubic-bezier(.2,.7,.3,1)}
+.standort-foto img{width:100%;height:auto;display:block;transition:transform .6s cubic-bezier(.2,.7,.3,1)}
 .standort-foto:hover img{transform:scale(1.03)}
 .standort-adresse{flex:1;padding:24px 26px;border-radius:var(--r);background:#fff;border:var(--kante);display:grid;gap:4px;align-content:start}
 .standort-adresse b{font-size:17px;display:block;margin-bottom:6px}
@@ -407,7 +407,7 @@ body.menu-auf .menu-flaeche a{opacity:1;transform:none}
 .karte-standort .sitz .puls{fill:none;stroke:var(--blau);stroke-width:2;opacity:0;animation:puls 3.4s ease-out infinite}
 @keyframes puls{0%{r:12;opacity:.7}100%{r:48;opacity:0}}
 .karte-standort .fluss{fill:none;stroke:rgba(0,136,208,.35);stroke-width:5;stroke-linecap:round}
-.karte-standort .wasser{fill:none;stroke:rgba(0,136,208,.6);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.2s ease .2s}
+.karte-standort .wasser{fill:none;stroke:rgba(0,136,208,.6);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .4s ease .2s}
 .da .karte-standort .wasser{stroke-dashoffset:0}
 .karte-legende{position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;font-size:14px;color:var(--grau);background:rgba(255,255,255,.9);padding:8px 14px;border-radius:var(--r-pille)}
 .karte-legende i{width:10px;height:10px;border-radius:50%;background:var(--blau);display:inline-block}
@@ -427,7 +427,7 @@ body.menu-auf .menu-flaeche a{opacity:1;transform:none}
 .faq-frage i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform var(--ueb)}
 .faq-eintrag.auf .faq-frage i{background:var(--blau);border-color:var(--blau);color:#fff;transform:rotate(180deg)}
 .faq-eintrag.auf .faq-frage i::after{transform:translate(-50%,-50%) rotate(0)}
-.faq-antwort{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.2,.7,.3,1)}
+.faq-antwort{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.2,.7,.3,1)}
 .faq-antwort p{padding:0 20px 20px;color:var(--grau);font-size:15.5px;border-top:var(--kante);padding-top:14px}
 
 /* ---------- Nächster Schritt in der Kette (Leistungsseiten) ---------- */
@@ -435,7 +435,7 @@ body.menu-auf .menu-flaeche a{opacity:1;transform:none}
 .nachbar{display:flex;align-items:center;gap:18px;padding:24px 26px;border-radius:var(--r-pille);background:#fff;border:var(--kante);transition:transform var(--ueb),box-shadow var(--ueb),border-color var(--ueb)}
 .nachbar:hover{transform:translateY(-4px);box-shadow:0 22px 44px -26px rgba(34,39,44,.35);border-color:rgba(0,136,208,.4)}
 .nachbar .produkt{width:64px;height:64px;color:var(--blau);flex:none}
-.nachbar small{display:block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--grau-hell);margin-bottom:4px}
+.nachbar small{display:block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--grau);margin-bottom:4px}
 .nachbar b{font-size:19px;display:block}
 .nachbar .pf{margin-left:auto;width:22px;height:22px;color:var(--grau-hell);transition:transform var(--ueb),color var(--ueb)}
 .nachbar:hover .pf{transform:translateX(4px);color:var(--blau)}
@@ -633,3 +633,13 @@ footer{background:var(--papier-2);border-top:2px solid var(--blau);padding:56px 
   .statement h2 i{opacity:.5}
   .faq-eintrag,.karte,.station,.halt,.nachweise li{border-color:var(--text)}
 }
+
+/* ---------- Apple-Regeln: Rückmeldung beim Drücken, Laufweite kleiner Schrift ---------- */
+a:active,summary:active,button:active{opacity:.78}
+.btn:active{opacity:1}
+.topbar span,.topbar a,.krumen,.krumen a,.krumen span,.station .nr,.register .zeile .nr,.halt .nr,.abschluss .schritte .nr,.station small,.fuss-unten,.fuss-unten a,.nachbar small,.galerie figcaption,.kontaktzeile b,.kicker,.fuss-titel{letter-spacing:.01em}
+.waehler-text p,.info-karte .hinweis-zeit,.regler .skala span,.zert .siegel .mass{letter-spacing:.01em}
+.einwilligung a{display:inline-block;padding:13px 0;margin:-13px 0}
+.textseite a{padding:10px 0;margin:-10px 0}
+.ring-mitte p{letter-spacing:.01em}
+.textseite a{min-width:44px}

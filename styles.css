@@ -669,3 +669,8 @@ a:active,summary:active,button:active{opacity:.78}
 .ring-liste a.dazu small{letter-spacing:.01em}
 .karten.zwei.gross .karte h3{line-height:1.12}
 .ring-liste a.dazu{border-radius:var(--r-pille);padding:12px 22px}
+
+/* Leitsatz füllt sich Wort für Wort beim Scrollen (Noah 26.10.: „mit der Animation durchlaufen lassen, wie wir schon hatten“) */
+.leitsatz-text i{font-style:normal;opacity:.18;transition:opacity .3s}
+.leitsatz-text i.an{opacity:1}
+@media (prefers-reduced-motion:reduce){.leitsatz-text i{opacity:1}}

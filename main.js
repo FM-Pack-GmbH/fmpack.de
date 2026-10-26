@@ -56,8 +56,8 @@
   setTimeout(nachholen, 2600);
 
   /* ---------- Scroll-Mechaniken: Statement (Skill scroll-text), Kette, Achsen ---------- */
-  var statement = document.querySelector('.statement');
-  var statementH2 = statement && statement.querySelector('h2');
+  var statement = document.querySelector('.leitsatz') || document.querySelector('.statement');
+  var statementH2 = statement && statement.querySelector('.leitsatz-text, h2');   // das Textelement, nie die Sektion
   var statementWorte = [];
   function worteTeilen(knoten) {
     Array.prototype.slice.call(knoten.childNodes).forEach(function (n) {

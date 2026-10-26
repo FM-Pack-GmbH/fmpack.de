@@ -198,6 +198,43 @@
     });
   });
 
+  /* ---------- Bühnen → Anfrage: die aktuelle Auswahl wandert in den Link zum Formular ---------- */
+  document.querySelectorAll('.buehne[data-thema]').forEach(function (b) {
+    var link = b.querySelector('[data-anfrage]');
+    if (!link) return;
+    function auswahl() {
+      var teile = [];
+      b.querySelectorAll('.chip.an').forEach(function (c) { teile.push(c.getAttribute('data-titel')); });
+      b.querySelectorAll('.schalter button.an').forEach(function (k) { teile.push(k.getAttribute('data-titel')); });
+      var wert = b.querySelector('[data-regler-wert]');
+      if (wert) teile.push('Gewicht ' + wert.textContent.trim());
+      var u = new URLSearchParams({ leistung: b.getAttribute('data-thema'), auswahl: teile.join(' · ') });
+      link.setAttribute('href', 'kontakt?' + u.toString() + '#anfrage');
+    }
+    b.addEventListener('click', function () { setTimeout(auswahl, 0); });
+    b.addEventListener('input', auswahl);
+    auswahl();
+  });
+
+  /* ---------- Kontaktseite: Leistung + Auswahl aus dem Link vortragen ---------- */
+  (function () {
+    var p = new URLSearchParams(location.search);
+    var leistung = p.get('leistung'), wahl = p.get('auswahl');
+    var form = document.querySelector('.formular form');
+    if (!form || !leistung) return;
+    var sel = form.querySelector('[name="thema"]');
+    if (sel) Array.prototype.forEach.call(sel.options, function (o) { if (o.text === leistung) sel.value = o.value || o.text; });
+    var feld = form.querySelector('[name="nachricht"]');
+    if (feld && !feld.value) feld.value = leistung + (wahl ? ': ' + wahl : '') + '\n\nUnser Produkt: ';
+    var kopf = document.querySelector('.formular .sub');
+    if (kopf) {
+      var hinweis = document.createElement('p');
+      hinweis.className = 'auswahl-hinweis';
+      hinweis.textContent = 'Ihre Auswahl: ' + leistung + (wahl ? ' · ' + wahl : '');
+      kopf.after(hinweis);
+    }
+  })();
+
   /* ---------- FAQ ---------- */
   document.querySelectorAll('.faq-eintrag.auf .faq-antwort').forEach(function (a) { a.style.maxHeight = a.scrollHeight + 'px'; });
   document.querySelectorAll('.faq-frage').forEach(function (knopf) {
